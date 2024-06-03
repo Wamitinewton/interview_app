@@ -41,7 +41,7 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
-          token: ${{ secrets.FIREBASE_TOKEN }}
+          serviceCredentialsFileContent: ${{ github.workspace }}/credentials.json
           groups: testers
           file: build/app/outputs/flutter-apk/app-release.apk
-          serviceCredentialsFile: ${{ github.workspace }}/credentials.json
+          
