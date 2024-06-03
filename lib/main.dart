@@ -1,3 +1,4 @@
+import 'package:app_interview/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
@@ -15,12 +16,8 @@ void main() async {
   Hive.registerAdapter(CachedDataAdapter());
   await Hive.openBox<CachedData>('cacheBox');
   await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: "AIzaSyDSjL7-NqizRuTIYU2zqUpMCddVEgyiBp0",
-          appId: "1:862069428665:android:f80bd34595170d566b6668",
-          messagingSenderId: "862069428665",
-          projectId: "interviewapp-f6657",
-          storageBucket: "interviewapp-f6657.appspot.com"));
+      options: DefaultFirebaseOptions.currentPlatform
+      );
 
   runApp(MyApp());
 }
